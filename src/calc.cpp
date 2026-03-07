@@ -8,8 +8,6 @@
 #include <algorithm>
 #include <vector>
 
-const double PI = 3.14;
-
 namespace calc {
 
 double add(double Num1, double Num2) {
@@ -62,6 +60,32 @@ double squrt(double Num1) {
         guess = newGuess;
     }
     return guess;
+}
+
+double cubrt(double Num1) {
+    double guess = Num1 / 3.0;
+    double epsilon = 0.00001;
+    while (true) {
+        double newGuess = (2 * guess + Num1 / (guess * guess)) / 3;
+        if (abs(newGuess - guess) < epsilon) {
+            break;
+        }
+        guess = newGuess;
+    }
+    return guess;
+}
+
+double fact(double Num1) {
+    if (Num1 < 0) {
+        std::cerr << "Error: Negative input!" << "\n";
+        return -1;
+    }
+    if (Num1 == 0 || Num1 == 1) return 1;
+    double result = 1;
+    for (int i = 2; i <= Num1; i++) {
+        result *= i;
+    }
+    return result;
 }
 
 double mean(double* values, int count) {
