@@ -1,0 +1,152 @@
+#include "calc.hpp"
+#include "geom.hpp"
+#include "physics.hpp"
+#include "elec.hpp"
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <algorithm>
+#include <vector>
+
+const double PI = 3.14;
+
+namespace calc {
+
+double add(double Num1, double Num2) {
+    double sum = Num1 + Num2;
+    return sum;
+}
+ 
+double sub(double Num1, double Num2) {
+    double difference = Num1 - Num2;
+    return difference;
+}
+
+double mult(double Num1, double Num2) {
+    double product = Num1 * Num2;
+    return product;
+}
+
+double div(double Num1, double Num2) {
+    if (Num2 > 0) {
+        double quotient = Num1 / Num2;
+        return quotient;
+    } else {
+      std::cout << "Cannot divide by zero!";
+      return 0;
+    }
+}
+
+double expo(double Num1, double Num2) {
+    double power = 1;
+    for (int i = 0; i < Num2; i++) {
+        power *=  Num1;
+    }
+    return power;
+}
+
+double squrt(double Num1) {
+    if (Num1 < 0) {
+        std::cerr << "Error: Negative input!" << "\n";
+        return -1;
+    }
+    if (Num1 == 0) return 0;
+    if (Num1 == 1) return 1;
+    double guess = Num1 / 2.0;
+    double epsilon = 0.00001;
+    while (true) {
+        double newGuess = (guess + Num1 / guess) / 2;
+        if (abs(newGuess - guess) < epsilon) {
+            break;
+        }
+        guess = newGuess;
+    }
+    return guess;
+}
+
+double mean(double* values, int count) {
+    double mean = values[0];
+    double total = 0;
+    for (int i = 0; i < count; i++) {
+        total += values[i];
+    }
+    mean = total / count;
+    return mean;
+}
+
+double median(double* values, int count) {
+    double median = values[0];
+    if (count % 2 == 1) {
+        median = values[count / 2];
+    } else {
+        median = (values[count / 2 - 1] + values[count / 2]) / 2.0;
+    }
+    return median;
+}
+
+double mode(double* values, int count) {
+    double mode = values[0];
+    int max_count = 0;
+    for (int i = 0; i < count; i++) {
+        int freq = 0;
+        for (int j = 0; j < count; j++) {
+           if (values[i] == values[j]) {
+               freq++;
+           }
+        }
+        if (freq > max_count) {
+            max_count = freq;
+            mode = values[i];
+        }
+    }
+    return mode;
+}
+
+double degrees_F(double CTemp) {
+    double fahrenTemp;
+    fahrenTemp = CTemp * 1.8 + 32;
+    //cout << "Temperature: " << fahrenTemp << "F\n";
+    return fahrenTemp;
+}
+
+double degrees_C(double FTemp) {
+    double celciusTemp;
+    celciusTemp = (FTemp - 32) * 5 / 9;
+    //cout << "Temperature: " << celciusTemp << "C\n";
+    return celciusTemp;
+}
+
+double log(double value) {
+    if (value > 0) {
+        double logValue = 0;
+        double term = (value - 1) / (value + 1);
+        double termSquared = term * term;
+        int n = 1;
+        while (abs(term) > 0.00001) {
+            logValue += term / n;
+            term *= termSquared;
+            n += 2;
+        }
+        logValue *= 2;
+        //cout << "Natural Log: " << logValue << "\n";
+        return logValue;
+    } else {
+        std::cerr << "Error: Value must be positive!" << "\n";
+        return -1;
+    }
+}
+
+double FtoK(double FTemp) {
+    double kelvinTemp;
+    kelvinTemp = (FTemp - 32) * 5 / 9 + 273.15;
+    //cout << "Temperature: " << kelvinTemp << " K\n";
+    return kelvinTemp;
+}
+
+double CtoK(double CTemp) {
+    double kelvinTemp;
+    kelvinTemp = CTemp + 273.15;
+    //cout << "Temperature: " << kelvinTemp << " K\n";
+    return kelvinTemp;
+}
+}
