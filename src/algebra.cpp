@@ -42,6 +42,21 @@ double solveLinear(double a, double b, double c) {
     return x;
 }
 
+double solvePolynomial(double* coefficients, int degree, double x) {
+    double result = 0;
+    for (int i = 0; i <= degree; i++) {
+        result += coefficients[i] * calc::expo(x, degree - i);
+    }
+    return result;
+}
+
+double solveCubic(double a, double b, double c, double d) {
+    // This function is complex and typically requires numerical methods for solving cubic equations.
+    // For simplicity, we will not implement it here and return an error message.
+    std::cerr << "Error: Solving cubic equations is not implemented!" << "\n";
+    return 0;
+}
+
 double solveSystem2x2(double a1, double b1, double c1, double a2, double b2, double c2) {
     double determinant = (a1 * b2) - (a2 * b1);
     if (determinant == 0) {
@@ -72,5 +87,30 @@ double solveSystem4x4(double a1, double b1, double c1, double d1, double e1, dou
     // For simplicity, we will not implement it here and return an error message.
     std::cerr << "Error: Solving 4x4 systems is not implemented!" << "\n";
     return 0;
+}
+
+double differenceOfSquares(double a, double b) {
+    double diffSq = (a - b) * (a + b);
+    return diffSq;
+}
+
+double binomialExpansion(double a, double b, int n) {
+    double result = 0;
+    for (int k = 0; k <= n; k++) {
+        double coeff = calc::expo(a, n - k) * calc::expo(b, k);
+        result += coeff;
+    }
+    return result;
+}
+
+double greatestCommonFactor(int a, int b) {
+    if (a < 0) a = -a;
+    if (b < 0) b = -b;
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
 }
