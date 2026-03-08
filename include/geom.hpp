@@ -19,6 +19,8 @@ double areaTrap(double Base1, double Base2, double Height);
 
 double cosine(double angle);
 
+double acos(double value);
+
 double sine(double angle);
 
 double tangent(double angle);
@@ -59,7 +61,6 @@ double surfaceAreaCylinder(double radius, double height);
 
 extern const double PI;
 
-extern double Height;
 }
 
 #endif
