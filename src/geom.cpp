@@ -20,6 +20,22 @@ double cosine(double angle) {
     return cosValue;
 }
 
+double acos(double value) {
+    if (value < -1 || value > 1) {
+        std::cerr << "Error: Input must be in the range [-1, 1]\n";
+        return -1;
+    }
+    double angle = 0;
+    double term = 1;
+    int n = 0;
+    while (abs(term) > 0.00001) {
+        term *= (value * value * (2 * n + 1)) / (2 * n + 3);
+        angle += term;
+        n++;
+    }
+    return angle;
+}
+
 double sine(double angle) {
     double radians = angle * (PI / 180);
     double sinValue = radians;

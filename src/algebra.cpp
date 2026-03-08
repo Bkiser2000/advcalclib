@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cmath>
 #include <vector>
+#include <cmath>
 #include "calc.hpp"
 #include "geom.hpp"
 #include "algebra.hpp"
@@ -52,10 +52,49 @@ double solvePolynomial(double* coefficients, int degree, double x) {
 }
 
 double solveCubic(double a, double b, double c, double d) {
-    // This function is complex and typically requires numerical methods for solving cubic equations.
-    // For simplicity, we will not implement it here and return an error message.
-    std::cerr << "Error: Solving cubic equations is not implemented!" << "\n";
-    return 0;
+    // Solve ax³ + bx² + cx + d = 0
+    
+    if (a == 0) {
+        std::cerr << "Error: Coefficient 'a' cannot be zero!\n";
+        return 0;
+    }
+    
+    // Normalize: divide by 'a' to get x³ + px² + qx + r = 0
+    double p = b / a;
+    double q = c / a;
+    double r = d / a;
+    
+    // Convert to depressed cubic: t³ + At + B = 0
+    // where t = x - p/3
+    double A = q - (p * p) / 3.0;
+    double B = (2.0 * p * p * p) / 27.0 - (p * q) / 3.0 + r;
+    
+    // Cardano's formula
+    double discriminant = -(4.0 * A * A * A + 27.0 * B * B);
+    
+    // Calculate using Cardano's method
+    double Asqrt3 = calc::squrt(A * A * A);
+    double inside = (B * B / 4.0) + (A * A * A / 27.0);
+    
+    if (inside < 0) {
+        std::cerr << "Error: Complex roots (not implemented)\n";
+        return 0;
+    }
+    
+    double C = calc::squrt(inside);
+    double u = -B / 2.0 + C;
+    double v = -B / 2.0 - C;
+    
+    // Cube roots
+    double u_cbrt = (u >= 0) ? calc::expo(u, 1.0/3.0) : -calc::expo(-u, 1.0/3.0);
+    double v_cbrt = (v >= 0) ? calc::expo(v, 1.0/3.0) : -calc::expo(-v, 1.0/3.0);
+    
+    // First real root
+    double t = u_cbrt + v_cbrt;
+    double x1 = t - p / 3.0;
+    
+    std::cout << "Cubic root: " << x1 << "\n";
+    return x1;
 }
 
 double solveSystem2x2(double a1, double b1, double c1, double a2, double b2, double c2) {
@@ -80,13 +119,6 @@ double solveSystem3x3(double a1, double b1, double c1, double d1, double a2, dou
     double y = (a1 * (d2 * c3 - d3 * c2) - d1 * (a2 * c3 - a3 * c2) + c1 * (a2 * d3 - a3 * d2)) / determinant;
     double z = (a1 * (b2 * d3 - b3 * d2) - b1 * (a2 * d3 - a3 * d2) + d1 * (a2 * b3 - a3 * b2)) / determinant;
     std::cout << "Solution: x = " << x << ", y = " << y << ", z = " << z << "\n";
-    return 0;
-}
-
-double solveSystem4x4(double a1, double b1, double c1, double d1, double e1, double a2, double b2, double c2, double d2, double e2, double a3, double b3, double c3, double d3, double e3, double a4, double b4, double c4, double d4, double e4) {
-    // This function is complex and typically requires matrix operations or Cramer's rule for 4x4 systems.
-    // For simplicity, we will not implement it here and return an error message.
-    std::cerr << "Error: Solving 4x4 systems is not implemented!" << "\n";
     return 0;
 }
 
@@ -128,7 +160,7 @@ double vectorMagnitude(const std::vector<double>& v) {
     return calc::squrt(sum);
 }
     
-    // Dot product
+// Dot product
 double dotProduct(const std::vector<double>& v1, const std::vector<double>& v2) {
     if (v1.size() != v2.size()) {
         std::cerr << "Error: Vectors must be same size\n";
@@ -141,7 +173,7 @@ double dotProduct(const std::vector<double>& v1, const std::vector<double>& v2) 
     return result;
 }
     
-    // Cross product (3D vectors only)
+// Cross product (3D vectors only)
 std::vector<double> crossProduct(const std::vector<double>& v1, const std::vector<double>& v2) {
     std::vector<double> result;
         if (v1.size() != 3 || v2.size() != 3) {
@@ -154,7 +186,7 @@ std::vector<double> crossProduct(const std::vector<double>& v1, const std::vecto
         return result;
 }
     
-    // Vector normalization
+// Vector normalization
 std::vector<double> normalizeVector(const std::vector<double>& v) {
     std::vector<double> result;
         double magnitude = vectorMagnitude(v);
@@ -169,7 +201,7 @@ std::vector<double> normalizeVector(const std::vector<double>& v) {
         return result;
 }
     
-    // Vector addition
+// Vector addition
 std::vector<double> vectorAdd(const std::vector<double>& v1, const std::vector<double>& v2) {
     std::vector<double> result;
         if (v1.size() != v2.size()) {
@@ -182,7 +214,7 @@ std::vector<double> vectorAdd(const std::vector<double>& v1, const std::vector<d
         return result;
 }
     
-    // Vector subtraction
+// Vector subtraction
 std::vector<double> vectorSubtract(const std::vector<double>& v1, const std::vector<double>& v2) {
     std::vector<double> result;
         if (v1.size() != v2.size()) {
@@ -195,7 +227,7 @@ std::vector<double> vectorSubtract(const std::vector<double>& v1, const std::vec
         return result;
 }
     
-    // Scalar multiplication
+// Scalar multiplication
 std::vector<double> scalarMultiply(const std::vector<double>& v, double scalar) {
     std::vector<double> result;
         for (double val : v) {
@@ -204,7 +236,7 @@ std::vector<double> scalarMultiply(const std::vector<double>& v, double scalar) 
         return result;
 }
     
-    // Angle between two vectors (in radians)
+// Angle between two vectors (in radians)
 double angleBetweenVectors(const std::vector<double>& v1, const std::vector<double>& v2) {
     if (v1.size() != v2.size()) {
         std::cerr << "Error: Vectors must be same size\n";
@@ -217,10 +249,10 @@ double angleBetweenVectors(const std::vector<double>& v1, const std::vector<doub
             std::cerr << "Error: Cannot compute angle for zero vector\n";
             return -1;
         } 
-        return acos(dot / (mag1 * mag2));
+        return geom::acos(dot / (mag1 * mag2));
 }
     
-    // Matrix multiplication (2x2)
+// Matrix multiplication (2x2)
 void matrixMultiply2x2(double a[2][2], double b[2][2], double result[2][2]) {
     for (int i = 0; i < 2; i++) {
         for (int j = 0; j < 2; j++) {
@@ -240,8 +272,8 @@ double determinant2x2(double a[2][2]) {
     // Matrix determinant (3x3)
 double determinant3x3(double a[3][3]) {
     return a[0][0] * (a[1][1] * a[2][2] - a[1][2] * a[2][1])
-            - a[0][1] * (a[1][0] * a[2][2] - a[1][2] * a[2][0])
-            + a[0][2] * (a[1][0] * a[2][1] - a[1][1] * a[2][0]);
+           - a[0][1] * (a[1][0] * a[2][2] - a[1][2] * a[2][0])
+           + a[0][2] * (a[1][0] * a[2][1] - a[1][1] * a[2][0]);
 }
     
     // Matrix inverse (2x2)
@@ -265,5 +297,98 @@ void printVector(const std::vector<double>& v) {
         if (i < v.size() - 1) std::cout << ", ";
         }
         std::cout << " ]\n";
+}
+
+// Matrix determinant (4x4) using cofactor expansion
+double determinant4x4(double a[4][4]) {
+    double det = 0;
+    
+    // Expand along first row
+    for (int j = 0; j < 4; j++) {
+        // Create 3x3 submatrix by removing row 0 and column j
+        double sub[3][3];
+        for (int row = 1; row < 4; row++) {
+            int col_idx = 0;
+            for (int col = 0; col < 4; col++) {
+                if (col != j) {
+                    sub[row - 1][col_idx] = a[row][col];
+                    col_idx++;
+                }
+            }
+        }
+        
+        // Calculate cofactor with sign
+        double sign = (j % 2 == 0) ? 1 : -1;
+        det += sign * a[0][j] * determinant3x3(sub);
     }
+    
+    return det;
+}
+
+// Solve 4x4 system using Cramer's rule
+// a1*w + b1*x + c1*y + d1*z = e1
+// a2*w + b2*x + c2*y + d2*z = e2
+// a3*w + b3*x + c3*y + d3*z = e3
+// a4*w + b4*x + c4*y + d4*z = e4
+bool solveSystem4x4(double a1, double b1, double c1, double d1, double e1,
+                    double a2, double b2, double c2, double d2, double e2,
+                    double a3, double b3, double c3, double d3, double e3,
+                    double a4, double b4, double c4, double d4, double e4,
+                    double& w, double& x, double& y, double& z) {
+    
+    // Coefficient matrix
+    double A[4][4] = {
+        {a1, b1, c1, d1},
+        {a2, b2, c2, d2},
+        {a3, b3, c3, d3},
+        {a4, b4, c4, d4}
+    };
+    
+    double detA = determinant4x4(A);
+    
+    if (detA == 0) {
+        std::cerr << "Error: No unique solution (determinant = 0)\n";
+        return false;
+    }
+    
+    // Matrix for w (replace column 0 with constants)
+    double Aw[4][4] = {
+        {e1, b1, c1, d1},
+        {e2, b2, c2, d2},
+        {e3, b3, c3, d3},
+        {e4, b4, c4, d4}
+    };
+    w = determinant4x4(Aw) / detA;
+    
+    // Matrix for x (replace column 1 with constants)
+    double Ax[4][4] = {
+        {a1, e1, c1, d1},
+        {a2, e2, c2, d2},
+        {a3, e3, c3, d3},
+        {a4, e4, c4, d4}
+    };
+    x = determinant4x4(Ax) / detA;
+    
+    // Matrix for y (replace column 2 with constants)
+    double Ay[4][4] = {
+        {a1, b1, e1, d1},
+        {a2, b2, e2, d2},
+        {a3, b3, e3, d3},
+        {a4, b4, e4, d4}
+    };
+    y = determinant4x4(Ay) / detA;
+    
+    // Matrix for z (replace column 3 with constants)
+    double Az[4][4] = {
+        {a1, b1, c1, e1},
+        {a2, b2, c2, e2},
+        {a3, b3, c3, e3},
+        {a4, b4, c4, e4}
+    };
+    z = determinant4x4(Az) / detA;
+    
+    std::cout << "Solution: w = " << w << ", x = " << x 
+              << ", y = " << y << ", z = " << z << "\n";
+    return true;
+}
 }
