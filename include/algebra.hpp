@@ -1,6 +1,8 @@
 #ifndef ALGEBRA_H
 #define ALGEBRA_H
 
+#include <vector>
+
 namespace algebra {
 
 double solveLinear(double a, double b, double c);
@@ -44,6 +46,26 @@ double lawOfExponents(double base, double exponent);
 double binomialExpansion(double a, double b, int n);
 
 double greatestCommonFactor(int a, int b);
+
+ // Vector functions
+double vectorMagnitude(const std::vector<double>& v);
+double dotProduct(const std::vector<double>& v1, const std::vector<double>& v2);
+std::vector<double> crossProduct(const std::vector<double>& v1, const std::vector<double>& v2);
+std::vector<double> normalizeVector(const std::vector<double>& v);
+std::vector<double> vectorAdd(const std::vector<double>& v1, const std::vector<double>& v2);
+std::vector<double> vectorSubtract(const std::vector<double>& v1, const std::vector<double>& v2);
+std::vector<double> scalarMultiply(const std::vector<double>& v, double scalar);
+double angleBetweenVectors(const std::vector<double>& v1, const std::vector<double>& v2);
+    
+// Matrix functions
+void matrixMultiply2x2(double a[2][2], double b[2][2], double result[2][2]);
+double determinant2x2(double a[2][2]);
+double determinant3x3(double a[3][3]);
+void inverseMatrix2x2(double a[2][2], double result[2][2]);
+    
+// Utility
+void printVector(const std::vector<double>& v);
+
 }
 
 #endif

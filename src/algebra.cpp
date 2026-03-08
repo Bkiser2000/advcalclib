@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <vector>
 #include "calc.hpp"
 #include "geom.hpp"
 #include "algebra.hpp"
@@ -113,4 +114,156 @@ double greatestCommonFactor(int a, int b) {
     }
     return a;
 }
+
+// Vector magnitude (length)
+double vectorMagnitude(const std::vector<double>& v) {
+    if (v.empty()) {
+        std::cerr << "Error: Empty vector\n";
+        return -1;
+    }
+    double sum = 0;
+    for (double val : v) {
+        sum += val * val;
+    }
+    return calc::squrt(sum);
+}
+    
+    // Dot product
+double dotProduct(const std::vector<double>& v1, const std::vector<double>& v2) {
+    if (v1.size() != v2.size()) {
+        std::cerr << "Error: Vectors must be same size\n";
+        return -1;
+    }
+    double result = 0;
+    for (size_t i = 0; i < v1.size(); i++) {
+        result += v1[i] * v2[i];
+    }
+    return result;
+}
+    
+    // Cross product (3D vectors only)
+std::vector<double> crossProduct(const std::vector<double>& v1, const std::vector<double>& v2) {
+    std::vector<double> result;
+        if (v1.size() != 3 || v2.size() != 3) {
+            std::cerr << "Error: Cross product requires 3D vectors\n";
+            return result;
+        }
+        result.push_back(v1[1] * v2[2] - v1[2] * v2[1]);
+        result.push_back(v1[2] * v2[0] - v1[0] * v2[2]);
+        result.push_back(v1[0] * v2[1] - v1[1] * v2[0]);
+        return result;
+}
+    
+    // Vector normalization
+std::vector<double> normalizeVector(const std::vector<double>& v) {
+    std::vector<double> result;
+        double magnitude = vectorMagnitude(v);
+        if (magnitude == 0) {
+            std::cerr << "Error: Cannot normalize zero vector\n";
+            return result;
+        }
+        
+        for (double val : v) {
+            result.push_back(val / magnitude);
+        }
+        return result;
+}
+    
+    // Vector addition
+std::vector<double> vectorAdd(const std::vector<double>& v1, const std::vector<double>& v2) {
+    std::vector<double> result;
+        if (v1.size() != v2.size()) {
+            std::cerr << "Error: Vectors must be same size\n";
+            return result;
+        }
+        for (size_t i = 0; i < v1.size(); i++) {
+            result.push_back(v1[i] + v2[i]);
+        }
+        return result;
+}
+    
+    // Vector subtraction
+std::vector<double> vectorSubtract(const std::vector<double>& v1, const std::vector<double>& v2) {
+    std::vector<double> result;
+        if (v1.size() != v2.size()) {
+            std::cerr << "Error: Vectors must be same size\n";
+            return result;
+        }
+        for (size_t i = 0; i < v1.size(); i++) {
+            result.push_back(v1[i] - v2[i]);
+        }
+        return result;
+}
+    
+    // Scalar multiplication
+std::vector<double> scalarMultiply(const std::vector<double>& v, double scalar) {
+    std::vector<double> result;
+        for (double val : v) {
+            result.push_back(val * scalar);
+        }
+        return result;
+}
+    
+    // Angle between two vectors (in radians)
+double angleBetweenVectors(const std::vector<double>& v1, const std::vector<double>& v2) {
+    if (v1.size() != v2.size()) {
+        std::cerr << "Error: Vectors must be same size\n";
+        return -1;
+        }
+        double dot = dotProduct(v1, v2);
+        double mag1 = vectorMagnitude(v1);
+        double mag2 = vectorMagnitude(v2);
+        if (mag1 == 0 || mag2 == 0) {
+            std::cerr << "Error: Cannot compute angle for zero vector\n";
+            return -1;
+        } 
+        return acos(dot / (mag1 * mag2));
+}
+    
+    // Matrix multiplication (2x2)
+void matrixMultiply2x2(double a[2][2], double b[2][2], double result[2][2]) {
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            result[i][j] = 0;
+            for (int k = 0; k < 2; k++) {
+                result[i][j] += a[i][k] * b[k][j];
+                }
+            }
+        }
+    }
+    
+    // Matrix determinant (2x2)
+double determinant2x2(double a[2][2]) {
+    return (a[0][0] * a[1][1]) - (a[0][1] * a[1][0]);
+}
+    
+    // Matrix determinant (3x3)
+double determinant3x3(double a[3][3]) {
+    return a[0][0] * (a[1][1] * a[2][2] - a[1][2] * a[2][1])
+            - a[0][1] * (a[1][0] * a[2][2] - a[1][2] * a[2][0])
+            + a[0][2] * (a[1][0] * a[2][1] - a[1][1] * a[2][0]);
+}
+    
+    // Matrix inverse (2x2)
+void inverseMatrix2x2(double a[2][2], double result[2][2]) {
+    double det = determinant2x2(a);
+        if (det == 0) {
+            std::cerr << "Error: Matrix is singular (determinant = 0)\n";
+            return;
+        }
+        result[0][0] = a[1][1] / det;
+        result[0][1] = -a[0][1] / det;
+        result[1][0] = -a[1][0] / det;
+        result[1][1] = a[0][0] / det;
+}
+    
+    // Print vector
+void printVector(const std::vector<double>& v) {
+    std::cout << "[ ";
+    for (size_t i = 0; i < v.size(); i++) {
+        std::cout << v[i];
+        if (i < v.size() - 1) std::cout << ", ";
+        }
+        std::cout << " ]\n";
+    }
 }
