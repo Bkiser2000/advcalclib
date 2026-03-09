@@ -127,13 +127,63 @@ double differenceOfSquares(double a, double b) {
     return diffSq;
 }
 
+// Calculate binomial coefficient C(n, k) = n! / (k!(n-k)!)
+double binomialCoefficient(int n, int k) {
+    if (k > n || k < 0) {
+        std::cerr << "Error: Invalid binomial coefficient\n";
+        return -1;
+    }
+    if (k == 0 || k == n) return 1;
+    
+    // Simplify: C(n, k) = n! / (k!(n-k)!)
+    double numerator = calc::fact(n);
+    double denominator = calc::fact(k) * calc::fact(n - k);
+    
+    return numerator / denominator;
+}
+
+// True binomial expansion: (a + b)^n
 double binomialExpansion(double a, double b, int n) {
+    if (n < 0) {
+        std::cerr << "Error: Exponent cannot be negative\n";
+        return -1;
+    }
+    
+    // (a + b)^n = Σ C(n,k) * a^(n-k) * b^k
     double result = 0;
     for (int k = 0; k <= n; k++) {
-        double coeff = calc::expo(a, n - k) * calc::expo(b, k);
-        result += coeff;
+        double coeff = binomialCoefficient(n, k);
+        double term = coeff * calc::expo(a, n - k) * calc::expo(b, k);
+        result += term;
     }
+    
+    std::cout << "Binomial expansion of (" << a << " + " << b << ")^" << n 
+              << " = " << result << "\n";
     return result;
+}
+
+// Print binomial expansion step-by-step
+void printBinomialExpansion(double a, double b, int n) {
+    if (n < 0) {
+        std::cerr << "Error: Exponent cannot be negative\n";
+        return;
+    }
+    
+    std::cout << "Binomial Expansion of (" << a << " + " << b << ")^" << n << ":\n";
+    
+    double result = 0;
+    for (int k = 0; k <= n; k++) {
+        double coeff = binomialCoefficient(n, k);
+        double term = coeff * calc::expo(a, n - k) * calc::expo(b, k);
+        result += term;
+        
+        std::cout << "  k=" << k << ": C(" << n << "," << k << ") * " 
+                  << a << "^" << (n - k) << " * " << b << "^" << k 
+                  << " = " << coeff << " * " << calc::expo(a, n - k) 
+                  << " * " << calc::expo(b, k) << " = " << term << "\n";
+    }
+    
+    std::cout << "Result: " << result << "\n";
 }
 
 double greatestCommonFactor(int a, int b) {
@@ -264,19 +314,19 @@ void matrixMultiply2x2(double a[2][2], double b[2][2], double result[2][2]) {
         }
     }
     
-    // Matrix determinant (2x2)
+// Matrix determinant (2x2)
 double determinant2x2(double a[2][2]) {
     return (a[0][0] * a[1][1]) - (a[0][1] * a[1][0]);
 }
     
-    // Matrix determinant (3x3)
+// Matrix determinant (3x3)
 double determinant3x3(double a[3][3]) {
     return a[0][0] * (a[1][1] * a[2][2] - a[1][2] * a[2][1])
            - a[0][1] * (a[1][0] * a[2][2] - a[1][2] * a[2][0])
            + a[0][2] * (a[1][0] * a[2][1] - a[1][1] * a[2][0]);
 }
     
-    // Matrix inverse (2x2)
+// Matrix inverse (2x2)
 void inverseMatrix2x2(double a[2][2], double result[2][2]) {
     double det = determinant2x2(a);
         if (det == 0) {
@@ -289,7 +339,7 @@ void inverseMatrix2x2(double a[2][2], double result[2][2]) {
         result[1][1] = a[0][0] / det;
 }
     
-    // Print vector
+// Print vector
 void printVector(const std::vector<double>& v) {
     std::cout << "[ ";
     for (size_t i = 0; i < v.size(); i++) {

@@ -3,7 +3,7 @@
 
 namespace calc {
 
-double returnVal(double a, double b);
+double fact(double Num1);
 
 double add(double Num1, double Num2);
 
