@@ -1,7 +1,4 @@
 #include "calc.hpp"
-#include "geom.hpp"
-#include "physics.hpp"
-#include "elec.hpp"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -45,20 +42,23 @@ double expo(double Num1, double Num2) {
 
 double squrt(double Num1) {
     if (Num1 < 0) {
-        std::cerr << "Error: Negative input!" << "\n";
+        std::cerr << "Error: Cannot take square root of negative number!\n";
         return -1;
     }
     if (Num1 == 0) return 0;
     if (Num1 == 1) return 1;
-    double guess = Num1 / 2.0;
-    double epsilon = 0.00001;
-    while (true) {
-        double newGuess = (guess + Num1 / guess) / 2;
-        if (abs(newGuess - guess) < epsilon) {
-            break;
-        }
-        guess = newGuess;
-    }
+    
+    // Newton-Raphson: x_{n+1} = (x_n + S/x_n) / 2
+    // where S is the number we're finding the square root of
+    double guess = Num1;
+    double epsilon = 1.0e-15;
+    double previous;
+    
+    do {
+        previous = guess;
+        guess = (guess + Num1 / guess) / 2.0;
+    } while (guess != previous && (guess - previous > epsilon || previous - guess > epsilon));
+    
     return guess;
 }
 
@@ -86,44 +86,6 @@ double fact(double Num1) {
         result *= i;
     }
     return result;
-}
-
-double mean(double* values, int count) {
-    double mean = values[0];
-    double total = 0;
-    for (int i = 0; i < count; i++) {
-        total += values[i];
-    }
-    mean = total / count;
-    return mean;
-}
-
-double median(double* values, int count) {
-    double median = values[0];
-    if (count % 2 == 1) {
-        median = values[count / 2];
-    } else {
-        median = (values[count / 2 - 1] + values[count / 2]) / 2.0;
-    }
-    return median;
-}
-
-double mode(double* values, int count) {
-    double mode = values[0];
-    int max_count = 0;
-    for (int i = 0; i < count; i++) {
-        int freq = 0;
-        for (int j = 0; j < count; j++) {
-           if (values[i] == values[j]) {
-               freq++;
-           }
-        }
-        if (freq > max_count) {
-            max_count = freq;
-            mode = values[i];
-        }
-    }
-    return mode;
 }
 
 double degrees_F(double CTemp) {
