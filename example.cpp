@@ -2,6 +2,7 @@
 #include <calc.hpp>
 #include <elec.hpp>
 #include <geom.hpp>
+#include <stat.hpp>
 #include <physics.hpp>
 #include <algebra.hpp>
 #include <calculus.hpp>
@@ -15,7 +16,7 @@
 
 int main() {
   double result;
-  calc::squrt(16);
+  std::cout << calc::squrt(1.776125) << "\n";
   std::cout << calc::add(5, 5) << "\n";
   result = calc::add(6, 8);
   if (result > 5) {
@@ -33,12 +34,14 @@ int main() {
   std::cout << calc::div(20, 4) << "\n";
   std::cout << calc::expo(2, 3) << "\n"; 
   double values[] = {3.3, 2.2, 1.1, 4.7};
-  std::cout << "Mean: " << calc::mean(values, 4) << "\n";
+  std::cout << "Mean: " << stat::mean(values, 4) << "\n";
   double values1[] = {5, 2, 4.20, 6, 9};
-  std::cout << "Median: " << calc::median(values1, 5) << "\n";
+  std::cout << "Median: " << stat::median(values1, 5) << "\n";
   double modeArr[] = {2, 2, 5, 7, 3, 3, 2};
-  result = calc::mode(modeArr, 7);
+  result = stat::mode(modeArr, 7);
   std::cout << "Mode: " << result << "\n";
+  double devValues[] = {3.3, 2.2, 1.1, 4.7};
+  stat::stdDevS(devValues, 4);
   double seriesResistors[] = {10, 20, 30};
   std::cout << elec::calculateSeries_Resis(seriesResistors, 3) << "\n";
   double paralResistors[] = {10, 20, 30};

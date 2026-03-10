@@ -21,11 +21,6 @@ double degrees_F(double CTemp);
 
 double degrees_C(double Num1);
 
-double mean(double* values, int count);
-
-double median(double* values, int count);
-
-double mode(double* values, int count);
 }
 
 #endif

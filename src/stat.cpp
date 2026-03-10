@@ -47,12 +47,22 @@ double varianceS(double* values, int count) {
         std::cerr << "Error: At least two values are required to calculate variance!\n";
         return -1;
     }
+    
     double meanValue = mean(values, count);
+    //std::cout << "Mean: " << meanValue << "\n";
+    
     double sumSquaredDiffs = 0;
     for (int i = 0; i < count; i++) {
-        sumSquaredDiffs += calc::expo(values[i] - meanValue, 2);
+        double diff = values[i] - meanValue;
+        double squared = diff * diff;
+        sumSquaredDiffs += squared;
+        //std::cout << "  values[" << i << "] = " << values[i] << ", diff = " << diff 
+                  //<< ", squared = " << squared << ", running sum = " << sumSquaredDiffs << "\n";
     }
+    
     double variance = sumSquaredDiffs / (count - 1);
+    //std::cout << "Sum of squared differences: " << sumSquaredDiffs << "\n";
+    //std::cout << "Divided by (n-1) = " << (count - 1) << " = " << variance << "\n";
     std::cout << "Variance (Sample): " << variance << "\n";
     return variance;
 }

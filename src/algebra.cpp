@@ -1,16 +1,16 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 #include "calc.hpp"
 #include "geom.hpp"
 #include "algebra.hpp"
+#include "utils.hpp"
 
 namespace algebra {
 
 double solveQuadratic(double a, double b, double c) {
      if (a == 0) {
         std::cerr << "Error: Coefficient 'a' cannot be zero!" << "\n";
-        return NAN;
+        return utils::NAN();
     }
     double discriminant = calc::expo(b, 2) - (4 * a * c);
     //std::cout << "Discriminant: " << discriminant << "\n";
@@ -20,7 +20,7 @@ double solveQuadratic(double a, double b, double c) {
 
     if (discriminant < 0) {
         std::cerr << "Error: No real roots!" << "\n";
-        return NAN;
+        return utils::NAN();
     } else if (discriminant == 0) {
         double root = -b / (2 * a);
         std::cout << "One real root: " << root << "\n";
