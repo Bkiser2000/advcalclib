@@ -6,6 +6,7 @@
 #include <physics.hpp>
 #include <algebra.hpp>
 #include <calculus.hpp>
+#include <utils.hpp>
 //#include "algebra.hpp"
 //#include "calc.hpp"
 //#include "physics.hpp"
@@ -33,6 +34,7 @@ int main() {
   std::cout << calc::mult(4, 5) << "\n";
   std::cout << calc::div(20, 4) << "\n";
   std::cout << calc::expo(2, 3) << "\n"; 
+  utils::saveResult("result.txt", "Square Root", calc::squrt(1.776125));
   double values[] = {3.3, 2.2, 1.1, 4.7};
   std::cout << "Mean: " << stat::mean(values, 4) << "\n";
   double values1[] = {5, 2, 4.20, 6, 9};
@@ -42,6 +44,7 @@ int main() {
   std::cout << "Mode: " << result << "\n";
   double devValues[] = {3.3, 2.2, 1.1, 4.7};
   stat::stdDevS(devValues, 4);
+  utils::outputPrecision("result.txt", 4, result);
   double seriesResistors[] = {10, 20, 30};
   std::cout << elec::calculateSeries_Resis(seriesResistors, 3) << "\n";
   double paralResistors[] = {10, 20, 30};
