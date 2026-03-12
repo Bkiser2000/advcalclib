@@ -13,6 +13,7 @@ set(SOURCES
     src/geom.cpp
     src/physics.cpp
     src/utils.cpp
+    src/stat.cpp
 )
 
 # Header files
@@ -23,6 +24,7 @@ set(HEADERS
     include/elec.hpp
     include/geom.hpp
     include/physics.hpp
+    include/stat.hpp
     include/utils.hpp
 )
 
@@ -39,13 +41,22 @@ target_include_directories(advcalclib PUBLIC
 install(TARGETS advcalclib
     LIBRARY DESTINATION lib
     RUNTIME DESTINATION bin
-    ARCHIVE DESTINATION lib
 )
 
-install(FILES ${HEADERS}
+install(DIRECTORY include/
     DESTINATION include
+    FILES_MATCHING PATTERN "*.hpp"
 )
 
+install(FILES advcalclib.pc
+    DESTINATION lib/pkgconfig
+    OPTIONAL
+)
+
+install(FILES advcalclibConfig.cmake
+    DESTINATION lib/cmake/advcalclib
+    OPTIONAL
+)
 # Example executable
 add_executable(exam example.cpp)
-target_link_libraries(exam advcalclib)
+target_link_libraries(exam PRIVATE advcalclib)
