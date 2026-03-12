@@ -1,0 +1,19 @@
+Source: advcalclib
+Section: libs
+Priority: optional
+Maintainer: Brendan Kiser <brendan.kiser@yahoo.com>
+Build-Depends: debhelper-compat (= 13), cmake
+Standards-Version: 4.6.0
+Homepage: https://github.com/Bkiser2000/advcalclib
+
+Package: libadvcalclib
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Advanced Calculator Library for C++
+ Mathematical library with linear algebra, statistics, and calculus.
+
+Package: libadvcalclib-dev
+Architecture: any
+Depends: libadvcalclib (= ${binary:Version}), ${misc:Depends}
+Description: Advanced Calculator Library - Development Files
+ Headers and CMake config for advcalclib.

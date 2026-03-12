@@ -1,0 +1,10 @@
+advcalclib (1.0.0-1) jammy; urgency=medium
+
+  * Initial release
+  * Linear algebra support (2x2, 3x3, 4x4 matrices)
+  * Statistical functions (variance, std dev, confidence intervals)
+  * Calculus operations (derivatives, integrals)
+  * Algebraic solvers (cubic equations, binomial expansion)
+  * Cross-platform CMake build system
+
+ -- Brendan Kiser <brendan.kiser@yahoo.com>  Mon, 12 Mar 2026 00:00:00 +0000
