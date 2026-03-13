@@ -10,14 +10,11 @@ class Advcalclib < Formula
   def install
     system "cmake", "-B", "build", "-S", ".",
            "-DCMAKE_INSTALL_PREFIX=#{prefix}",
-           "-DCMAKE_BUILD_TYPE=Release",
-           "-DCMAKE_CXX_FLAGS=-fPIC"
+           "-DCMAKE_BUILD_TYPE=Release"
+    system "cmake", "--build", "build"
     
-    # Build only the library, skip the example
-    system "make", "-C", "build", "advcalclib"
-    system "cmake", "--install", "build", "--component", "libraries"
-    
-    # Install headers manually
-    include.install Dir["include/*"]
+    # Manually copy library and headers instead of relying on install
+    lib.install Dir["build/libadvcalclib.so*"]
+    include.install Dir["include/*.hpp"]
   end
 end
