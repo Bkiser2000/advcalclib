@@ -58,6 +58,6 @@ install(FILES advcalclibConfig.cmake
     OPTIONAL
 )
 # Example executable
-add_executable(exam example.cpp)
-target_link_libraries(exam PRIVATE advcalclib)
-target_include_directories(exam PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+#add_executable(exam example.cpp)
+#target_link_libraries(exam PRIVATE advcalclib)
+#target_include_directories(exam PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
