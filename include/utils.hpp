@@ -17,7 +17,7 @@ namespace utils {
     
     // NAN handling functions
     double createNAN();
-    double NAN();
+    double nan();
     bool isNAN(double value);
     bool isInfinite(double value);
     bool isValid(double value);

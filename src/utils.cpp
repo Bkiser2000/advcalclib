@@ -181,7 +181,7 @@ namespace utils {
     }
     
     // Get a NAN value
-    double NAN() {
+    double nan() {
         return 0.0 / 0.0;  // Mathematical operations that produce NAN
     }
     
@@ -189,12 +189,12 @@ namespace utils {
     double output(const char* label, double result) {
         if (isNAN(result)) {
             std::cerr << "Error: Result is NAN\n";
-            return NAN();
+            return nan();
         }
         
         if (isInfinite(result)) {
             std::cerr << "Error: Result is Infinity\n";
-            return NAN();
+            return nan();
         }
         
         if (label && label[0] != '\0') {
@@ -209,12 +209,12 @@ namespace utils {
     double outputPrecision(const char* label, double result, int precision) {
         if (isNAN(result)) {
             std::cerr << "Error: Result is NAN\n";
-            return NAN();
+            return nan();
         }
         
         if (precision < 0) {
             std::cerr << "Error: Precision must be non-negative\n";
-            return NAN();
+            return nan();
         }
         
         if (label && label[0] != '\0') {
@@ -229,7 +229,7 @@ namespace utils {
     double outputArithmetic(const char* operation, double num1, double num2, double result) {
         if (!isValid(result)) {
             std::cerr << "Error: Invalid result\n";
-            return NAN();
+            return nan();
         }
         
         std::cout << operation << "(" << num1 << ", " << num2 << ") = " << result << "\n";
@@ -240,7 +240,7 @@ namespace utils {
     double outputGeometry(const char* shape, const char* property, double result) {
         if (!isValid(result)) {
             std::cerr << "Error: Invalid result\n";
-            return NAN();
+            return nan();
         }
         
         std::cout << shape << " " << property << " = " << result << "\n";
@@ -251,7 +251,7 @@ namespace utils {
     double outputPhysics(const char* quantity, double value, const char* unit) {
         if (!isValid(value)) {
             std::cerr << "Error: Invalid result\n";
-            return NAN();
+            return nan();
         }
         
         std::cout << quantity << ": " << value << " " << unit << "\n";

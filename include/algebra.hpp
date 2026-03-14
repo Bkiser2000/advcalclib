@@ -21,15 +21,7 @@ double solveSystem3x3(double a1, double b1, double c1, double d1, double a2, dou
 
 double determinant2x2(double a, double b, double c, double d);
 
-double determinant3x3(double a1, double b1, double c1, double a2, double b2, double c2, double a3, double b3, double c3);
-
 double determinant4x4(double a1, double b1, double c1, double d1, double a2, double b2, double c2, double d2, double a3, double b3, double c3, double d3, double a4, double b4, double c4, double d4);
-
-double inverse2x2(double a, double b, double c, double d);
-
-double inverse3x3(double a1, double b1, double c1, double a2, double b2, double c2, double a3, double b3, double c3);
-
-double inverse4x4(double a1, double b1, double c1, double d1, double a2, double b2, double c2, double d2, double a3, double b3, double c3, double d3, double a4, double b4, double c4, double d4);
 
 double differenceOfSquares(double a, double b);
 
@@ -73,7 +65,9 @@ void inverseMatrix2x2(double a[2][2], double result[2][2]);
     
 // Utility
 void printVector(const std::vector<double>& v);
-
+void printMatrix2x2(const char* label, double a[2][2]);
+void printMatrix3x3(const char* label, double a[3][3]);
+void printMatrix4x4(const char* label, double a[4][4]);
 }
 
 #endif

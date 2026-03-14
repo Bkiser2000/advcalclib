@@ -32,5 +32,4 @@ namespace stat {
     double getTScore(int sampleSize, double confidenceLevel);
     ConfidenceInterval conIntT(double mean, double stdDev, int sampleSize, double confidenceLevel);
 }
-
 #endif

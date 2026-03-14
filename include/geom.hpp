@@ -1,6 +1,9 @@
 #ifndef GEOM_H
 #define GEOM_H
 
+#include <algorithm>
+#include <vector>
+
 namespace geom {
 
 double circumR(double radius);
@@ -58,6 +61,28 @@ double surfaceAreaCube(double side);
 double surfaceAreaSphere(double radius);
 
 double surfaceAreaCylinder(double radius, double height);
+
+double dist_2p(double x1, double y1, double x2, double y2);
+
+double midpoint(double x1, double y1, double x2, double y2);
+
+double slope(double x1, double y1, double x2, double y2);
+
+double slopeIntercept(double x1, double y1, double x2, double y2);
+
+double crossProduct(const std::pair<double, double>& O, 
+                       const std::pair<double, double>& A, 
+                       const std::pair<double, double>& B);
+
+double crossProductMagnitude(double x1, double y1, double x2, double y2);
+
+double polygonArea(const std::vector<std::pair<double, double>>& polygon);
+
+double convexHull_GS(const std::vector<std::pair<double, double>>& points);
+
+double convexHull(const std::vector<std::pair<double, double>>& points);
+
+double delaunayTriangulation(const std::vector<std::pair<double, double>>& points);
 
 extern const double PI;
 

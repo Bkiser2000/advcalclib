@@ -19,7 +19,17 @@ double squrt(double Num1);
 
 double degrees_F(double CTemp);
 
-double degrees_C(double Num1);
+double degrees_C(double FTemp);
+
+double log(double value);
+
+double FtoK(double FTemp);
+
+double CtoK(double CTemp);
+
+double fact(double Num1);
+
+double cubrt(double Num1);
 
 }
 

@@ -10,7 +10,7 @@ namespace algebra {
 double solveQuadratic(double a, double b, double c) {
      if (a == 0) {
         std::cerr << "Error: Coefficient 'a' cannot be zero!" << "\n";
-        return utils::NAN();
+        return utils::nan();
     }
     double discriminant = calc::expo(b, 2) - (4 * a * c);
     //std::cout << "Discriminant: " << discriminant << "\n";
@@ -20,7 +20,7 @@ double solveQuadratic(double a, double b, double c) {
 
     if (discriminant < 0) {
         std::cerr << "Error: No real roots!" << "\n";
-        return utils::NAN();
+        return utils::nan();
     } else if (discriminant == 0) {
         double root = -b / (2 * a);
         std::cout << "One real root: " << root << "\n";
@@ -338,7 +338,35 @@ void inverseMatrix2x2(double a[2][2], double result[2][2]) {
         result[1][0] = -a[1][0] / det;
         result[1][1] = a[0][0] / det;
 }
-    
+ 
+// Print 2x2 matrix
+void printMatrix2x2(const char* label, double a[2][2]) {
+    std::cout << label << ":\n";
+    std::cout << "| " << a[0][0] << "\t" << a[0][1] << " |\n";
+    std::cout << "| " << a[1][0] << "\t" << a[1][1] << " |\n\n";
+}
+
+// Print 3x3 matrix
+void printMatrix3x3(const char* label, double a[3][3]) {
+    std::cout << label << ":\n";
+    std::cout << "| " << a[0][0] << "\t" << a[0][1] << "\t" << a[0][2] << " |\n";
+    std::cout << "| " << a[1][0] << "\t" << a[1][1] << "\t" << a[1][2] << " |\n";
+    std::cout << "| " << a[2][0] << "\t" << a[2][1] << "\t" << a[2][2] << " |\n\n";
+}
+
+// Print 4x4 matrix
+void printMatrix4x4(const char* label, double a[4][4]) {
+    std::cout << label << ":\n";
+    for (int i = 0; i < 4; i++) {
+        std::cout << "| ";
+        for (int j = 0; j < 4; j++) {
+            std::cout << a[i][j] << "\t";
+        }
+        std::cout << " |\n";
+    }
+    std::cout << "\n";
+}
+
 // Print vector
 void printVector(const std::vector<double>& v) {
     std::cout << "[ ";
