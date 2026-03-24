@@ -1,0 +1,80 @@
+V "GNAT Lib v14"
+A -gnatA
+A -gnat2012
+A -gnatwa
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_FLOATING_POINT
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U advcalc%s		advcalc.ads		7412060f NE OO PK
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.adb			i-c.ali
+
+D ada.ads		20250523110204 76789da1 ada%s
+D a-unccon.ads		20250523110204 0e9b276f ada.unchecked_conversion%s
+D advcalc.ads		20260323055900 ded110c1 advcalc%s
+D interfac.ads		20250523110204 9111f9c1 interfaces%s
+D i-c.ads		20250523110204 aac316ce interfaces.c%s
+D system.ads		20250523110204 14286b0f system%s
+D s-exctab.ads		20250523110204 91bef6ef system.exception_table%s
+D s-parame.ads		20260202091358 a1aeab5c system.parameters%s
+D s-stalib.ads		20250523110204 1c9580f6 system.standard_library%s
+G a e
+G c Z s s [add advcalc 8 13 none]
+G c Z s s [subtract advcalc 13 13 none]
+G c Z s s [multiply advcalc 18 13 none]
+G c Z s s [divide advcalc 23 13 none]
+G c Z s s [exponent advcalc 30 13 none]
+G c Z s s [square_root advcalc 35 13 none]
+G c Z s s [cube_root advcalc 40 13 none]
+G c Z s s [factorial advcalc 45 13 none]
+G c Z s s [natural_log advcalc 50 13 none]
+G c Z s s [celsius_to_fahrenheit advcalc 57 13 none]
+G c Z s s [fahrenheit_to_celsius advcalc 62 13 none]
+G c Z s s [fahrenheit_to_kelvin advcalc 67 13 none]
+G c Z s s [celsius_to_kelvin advcalc 72 13 none]
+X 3 advcalc.ads
+3K9*Advcalc 77l5 77e12
+8V13*Add{5|99F9} 8>18 8>33
+8f18 num1{5|99F9}
+8f33 num2{5|99F9}
+13V13*Subtract{5|99F9} 13>23 13>38
+13f23 num1{5|99F9}
+13f38 num2{5|99F9}
+18V13*Multiply{5|99F9} 18>23 18>38
+18f23 num1{5|99F9}
+18f38 num2{5|99F9}
+23V13*Divide{5|99F9} 23>21 23>36
+23f21 num1{5|99F9}
+23f36 num2{5|99F9}
+30V13*Exponent{5|99F9} 30>23 30>38
+30f23 num1{5|99F9}
+30f38 num2{5|99F9}
+35V13*Square_Root{5|99F9} 35>26
+35f26 num1{5|99F9}
+40V13*Cube_Root{5|99F9} 40>24
+40f24 num1{5|99F9}
+45V13*Factorial{5|99F9} 45>24
+45f24 num1{5|99F9}
+50V13*Natural_Log{5|99F9} 50>26
+50f26 value{5|99F9}
+57V13*Celsius_To_Fahrenheit{5|99F9} 57>36
+57f36 c_temp{5|99F9}
+62V13*Fahrenheit_To_Celsius{5|99F9} 62>36
+62f36 f_temp{5|99F9}
+67V13*Fahrenheit_To_Kelvin{5|99F9} 67>35
+67f35 f_temp{5|99F9}
+72V13*Celsius_To_Kelvin{5|99F9} 72>32
+72f32 c_temp{5|99F9}
+X 4 interfac.ads
+38K9*Interfaces 3|1r6 4r8 4|233e15
+X 5 i-c.ads
+30K20*C 3|1w17 4r19 5|598e17
+99F9*double<long_float> 3|8r25 8r40 8r55 13r30 13r45 13r60 18r30 18r45 18r60
+. 23r28 23r43 23r58 30r30 30r45 30r60 35r33 35r48 40r31 40r46 45r31 45r46
+. 50r34 50r49 57r45 57r60 62r45 62r60 67r44 67r59 72r41 72r56
+

@@ -1,0 +1,4 @@
+proj.adb:2:16: warning: unit "Interfaces.C" is not referenced [-gnatwu]
+proj.adb:3:06: warning: unit "advcalc" is not referenced [-gnatwu]
+proj.adb:7:04: warning: variable "D" is assigned but never read [-gnatwm]
+proj.adb:11:04: warning: "E" is not modified, could be declared constant [-gnatwk]

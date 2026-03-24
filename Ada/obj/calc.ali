@@ -1,0 +1,176 @@
+V "GNAT Lib v14"
+M P W=b
+A -gnatA
+A -gnat2012
+A -gnatwa
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_FLOATING_POINT
+RV NO_IO
+RV NO_LOCAL_ALLOCATORS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U calc%b		calc.adb		18f6abdc NE OO SU
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z ada.text_io.float_aux%s
+Z ada.text_io.float_io%s
+Z ada.text_io.generic_aux%s  a-tigeau.adb	a-tigeau.ali
+W advcalc%s		advcalc.ads		advcalc.ali
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.adb			i-c.ali
+W system%s		system.ads		system.ali
+Z system.concat_2%s	s-conca2.adb		s-conca2.ali
+Z system.concat_3%s	s-conca3.adb		s-conca3.ali
+Z system.fat_lflt%s	s-fatlfl.ads		s-fatlfl.ali
+Z system.img_flt%s	s-imgflt.ads		s-imgflt.ali
+Z system.img_lflt%s	s-imglfl.ads		s-imglfl.ali
+Z system.img_llf%s	s-imgllf.ads		s-imgllf.ali
+Z system.img_util%s	s-imguti.adb		s-imguti.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.val_flt%s	s-valflt.ads		s-valflt.ali
+Z system.val_lflt%s	s-vallfl.ads		s-vallfl.ali
+Z system.val_llf%s	s-valllf.ads		s-valllf.ali
+
+D ada.ads		20250523110204 76789da1 ada%s
+D a-charac.ads		20250523110204 2d3ec45b ada.characters%s
+D a-chlat1.ads		20250523110204 e0d72e76 ada.characters.latin_1%s
+D a-except.ads		20250523110204 e7970cd9 ada.exceptions%s
+D a-ioexce.ads		20250523110204 40018c65 ada.io_exceptions%s
+D a-stream.ads		20250523110204 119b8fb3 ada.streams%s
+D a-string.ads		20250523110204 90ac6797 ada.strings%s
+D a-strfix.ads		20250523110204 100e0a05 ada.strings.fixed%s
+D a-strmap.ads		20250523110204 1f91ebb6 ada.strings.maps%s
+D a-strsea.ads		20250523110204 2b7aab86 ada.strings.search%s
+D a-sttebu.ads		20250523110204 f1ad67a2 ada.strings.text_buffers%s
+D a-stuten.ads		20250523110204 c6ced0ae ada.strings.utf_encoding%s
+D a-tags.ads		20250523110204 9eaa38c6 ada.tags%s
+D a-textio.ads		20250523110204 34ef47de ada.text_io%s
+D a-tiflau.ads		20250523110204 40ab5f5e ada.text_io.float_aux%s
+D a-tiflau.adb		20250523110204 1a734a41 ada.text_io.float_aux%b
+D a-tiflio.ads		20250523110204 48a0360d ada.text_io.float_io%s
+D a-tiflio.adb		20250523110204 46ae63e6 ada.text_io.float_io%b
+D a-tigeau.ads		20250523110204 e643cdf3 ada.text_io.generic_aux%s
+D a-unccon.ads		20250523110204 0e9b276f ada.unchecked_conversion%s
+D advcalc.ads		20260323055900 ded110c1 advcalc%s
+D calc.adb		20260323065901 d8a9879f calc%b
+D interfac.ads		20250523110204 9111f9c1 interfaces%s
+D i-c.ads		20250523110204 aac316ce interfaces.c%s
+D i-cstrea.ads		20250523110204 ffd01b9d interfaces.c_streams%s
+D system.ads		20250523110204 14286b0f system%s
+D s-conca2.ads		20250523110204 b5fb73f7 system.concat_2%s
+D s-conca3.ads		20250523110204 8a7a19a2 system.concat_3%s
+D s-crtl.ads		20250523110204 beb39b9e system.crtl%s
+D s-exctab.ads		20250523110204 91bef6ef system.exception_table%s
+D s-fatgen.ads		20250523110204 d28c6cfe system.fat_gen%s
+D s-fatlfl.ads		20250523110204 378cba9f system.fat_lflt%s
+D s-ficobl.ads		20250523110204 dc5161d4 system.file_control_block%s
+D s-imager.ads		20250523110204 45c7157d system.image_r%s
+D s-imageu.ads		20250523110204 b0b50650 system.image_u%s
+D s-imgflt.ads		20250523110204 d12816b5 system.img_flt%s
+D s-imglfl.ads		20250523110204 941be202 system.img_lflt%s
+D s-imgllf.ads		20250523110204 e85a7fe5 system.img_llf%s
+D s-imgllu.ads		20250523110204 55ba53d8 system.img_llu%s
+D s-imguns.ads		20250523110204 c4e23690 system.img_uns%s
+D s-imguti.ads		20250523110204 7719a4b9 system.img_util%s
+D s-parame.ads		20260202091358 a1aeab5c system.parameters%s
+D s-powflt.ads		20250523110204 a51ab9b8 system.powten_flt%s
+D s-powlfl.ads		20250523110204 ac0852c8 system.powten_lflt%s
+D s-powllf.ads		20250523110204 9b99e843 system.powten_llf%s
+D s-putima.ads		20250523110204 17291fe4 system.put_images%s
+D s-secsta.ads		20250523110204 578279f5 system.secondary_stack%s
+D s-soflin.ads		20250523110204 df77073e system.soft_links%s
+D s-stache.ads		20250523110204 0b81c1fe system.stack_checking%s
+D s-stalib.ads		20250523110204 1c9580f6 system.standard_library%s
+D s-stoele.ads		20250523110204 ccded4e8 system.storage_elements%s
+D s-traent.ads		20250523110204 c81cbf8c system.traceback_entries%s
+D s-unstyp.ads		20250523110204 fa2a7f59 system.unsigned_types%s
+D s-valflt.ads		20250523110204 78fc9326 system.val_flt%s
+D s-vallfl.ads		20250523110204 944236a7 system.val_lflt%s
+D s-valllf.ads		20250523110204 03043e61 system.val_llf%s
+D s-valrea.ads		20250523110204 f0598c00 system.val_real%s
+D s-valspe.ads		20250523110204 b0fcd073 system.val_spec%s
+D s-vauspe.ads		20250523110204 89269ba5 system.value_u_spec%s
+D s-vs_llu.ads		20250523110204 8f3536c5 system.vs_llu%s
+D s-vs_uns.ads		20250523110204 e7f47a27 system.vs_uns%s
+D s-wchcon.ads		20250523110204 d9032363 system.wch_con%s
+G a e
+G c Z b b [calc standard 7 11 none]
+G r c none [calc standard 7 11 none] [add advcalc 8 13 none]
+G r c none [calc standard 7 11 none] [subtract advcalc 13 13 none]
+G r c none [calc standard 7 11 none] [multiply advcalc 18 13 none]
+G r c none [calc standard 7 11 none] [divide advcalc 23 13 none]
+G r c none [calc standard 7 11 none] [exponent advcalc 30 13 none]
+G r c none [calc standard 7 11 none] [square_root advcalc 35 13 none]
+G r c none [calc standard 7 11 none] [cube_root advcalc 40 13 none]
+G r c none [calc standard 7 11 none] [factorial advcalc 45 13 none]
+G r c none [calc standard 7 11 none] [natural_log advcalc 50 13 none]
+G r c none [calc standard 7 11 none] [celsius_to_fahrenheit advcalc 57 13 none]
+G r c none [calc standard 7 11 none] [fahrenheit_to_celsius advcalc 62 13 none]
+G r c none [calc standard 7 11 none] [celsius_to_kelvin advcalc 72 13 none]
+G r c none [calc standard 7 11 none] [fahrenheit_to_kelvin advcalc 67 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 22|1r6 1r23 2r6 3r6 15r32 19r14 19r45
+X 7 a-string.ads
+16K13*Strings 35e16 22|2w10 3r10 19r18 19r49
+33n37*Both{33E9} 22|19r57
+X 8 a-strfix.ads
+49K21*Fixed 1386e22 22|3w18 19r26
+1129V13*Trim{string} 22|19s32
+X 14 a-textio.ads
+58K13*Text_IO 785e16 22|1w10 1r27 15r36
+89I12*Field{integer}
+284U14*New_Line 22|26s4 43s4 63s4
+565U14*Put_Line 22|23s4 24s4 25s4 29s4 32s4 35s4 38s4 41s4 46s4 49s4 52s4
+. 55s4 58s4 61s4 66s4 69s4 72s4 75s4 78s4 81s4 83s4 84s4 85s4
+X 17 a-tiflio.ads
+46k21*Float_IO 121e25 22|15r44
+108U14 Put 22|18s17[15]
+111i7 Aft{14|89I12} 22|18r46[15]
+112i7 Exp{14|89I12} 22|18r36[15]
+X 21 advcalc.ads
+3K9*Advcalc 77e12 22|5w6 9r8
+8V13*Add{24|99F9} 22|31s14
+13V13*Subtract{24|99F9} 22|34s14
+18V13*Multiply{24|99F9} 22|37s14
+23V13*Divide{24|99F9} 22|40s14
+30V13*Exponent{24|99F9} 22|48s14
+35V13*Square_Root{24|99F9} 22|51s14
+40V13*Cube_Root{24|99F9} 22|54s14
+45V13*Factorial{24|99F9} 22|57s14
+50V13*Natural_Log{24|99F9} 22|60s14
+57V13*Celsius_To_Fahrenheit{24|99F9} 22|68s14
+62V13*Fahrenheit_To_Celsius{24|99F9} 22|71s14
+67V13*Fahrenheit_To_Kelvin{24|99F9} 22|80s14
+72V13*Celsius_To_Kelvin{24|99F9} 22|74s14 77s14
+X 22 calc.adb
+7U11*Calc 7b11 87l5 87t9
+11f4 result{24|99F9} 31m4 32r49 34m4 35r54 37m4 38r54 40m4 41r52 48m4 49r53
+. 51m4 52r52 54m4 55r50 57m4 58r49 60m4 61r49 68m4 69r53 71m4 72r51 74m4
+. 75r49 77m4 78r50 80m4 81r50
+14V13 Format_Double{string} 14b13 14>28 14>44 20l8 20t21 32s35 35s40 38s40
+. 41s38 49s39 52s38 55s36 58s35 61s35 69s39 72s37 75s35 78s36 81s36
+14f28 value{24|99F9} 18r29
+14i44 decimal_places{integer} 18r53
+15K15 Double_IO[17|46] 18r7
+16a7 output{string} 18m21 19r37
+X 23 interfac.ads
+38K9*Interfaces 22|4r6 8r8 23|233e15
+X 24 i-c.ads
+30K20*C 22|4w17 8r19 24|598e17
+99F9*double<long_float> 22|11r13 14r36 15r53
+

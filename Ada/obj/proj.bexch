@@ -1,0 +1,19 @@
+[GENERATED OBJECT FILE]
+b__proj.o
+[PROJECT FILES]
+/mnt/Basefiles/CLearn/cpplearn/advcalc/advcalclib/calc.gpr
+20260323064229 d80ba08a1d0a178e37b79c3a3234e2cd
+[BOUND OBJECT FILES]
+/mnt/Basefiles/CLearn/cpplearn/advcalc/advcalclib/obj/advcalc.o
+/mnt/Basefiles/CLearn/cpplearn/advcalc/advcalclib/obj/proj.o
+[GENERATED SOURCE FILES]
+b__proj.ads
+b__proj.adb
+b__proj.ali
+[RESULTING OPTIONS]
+-L/mnt/Basefiles/CLearn/cpplearn/advcalc/advcalclib/obj/
+-L/mnt/Basefiles/CLearn/cpplearn/advcalc/advcalclib/obj/
+-L/usr/lib/gcc/x86_64-linux-gnu/14/adalib/
+-shared
+-lgnat-14
+-ldl

@@ -1,0 +1,116 @@
+V "GNAT Lib v14"
+M P W=b
+A -gnatA
+A -gnat2012
+A -gnatwa
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_FLOATING_POINT
+RV NO_IO
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U proj%b		proj.adb		619ce6ff NE OO SU IL
+W ada%s			ada.ads			ada.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W advcalc%s		advcalc.ads		advcalc.ali
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.adb			i-c.ali
+Z system.concat_2%s	s-conca2.adb		s-conca2.ali
+Z system.concat_4%s	s-conca4.adb		s-conca4.ali
+Z system.img_flt%s	s-imgflt.ads		s-imgflt.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.val_int%s	s-valint.ads		s-valint.ali
+
+D ada.ads		20250523110204 76789da1 ada%s
+D a-except.ads		20250523110204 e7970cd9 ada.exceptions%s
+D a-ioexce.ads		20250523110204 40018c65 ada.io_exceptions%s
+D a-stream.ads		20250523110204 119b8fb3 ada.streams%s
+D a-string.ads		20250523110204 90ac6797 ada.strings%s
+D a-sttebu.ads		20250523110204 f1ad67a2 ada.strings.text_buffers%s
+D a-stuten.ads		20250523110204 c6ced0ae ada.strings.utf_encoding%s
+D a-tags.ads		20250523110204 9eaa38c6 ada.tags%s
+D a-textio.ads		20250523110204 34ef47de ada.text_io%s
+D a-unccon.ads		20250523110204 0e9b276f ada.unchecked_conversion%s
+D advcalc.ads		20260323055900 ded110c1 advcalc%s
+D interfac.ads		20250523110204 9111f9c1 interfaces%s
+D i-c.ads		20250523110204 aac316ce interfaces.c%s
+D i-cstrea.ads		20250523110204 ffd01b9d interfaces.c_streams%s
+D proj.adb		20260323062042 2161a72e proj%b
+D system.ads		20250523110204 14286b0f system%s
+D s-conca2.ads		20250523110204 b5fb73f7 system.concat_2%s
+D s-conca4.ads		20250523110204 33f85f3e system.concat_4%s
+D s-crtl.ads		20250523110204 beb39b9e system.crtl%s
+D s-exctab.ads		20250523110204 91bef6ef system.exception_table%s
+D s-ficobl.ads		20250523110204 dc5161d4 system.file_control_block%s
+D s-imagei.ads		20250523110204 5e131ce0 system.image_i%s
+D s-imager.ads		20250523110204 45c7157d system.image_r%s
+D s-imageu.ads		20250523110204 b0b50650 system.image_u%s
+D s-imgflt.ads		20250523110204 d12816b5 system.img_flt%s
+D s-imgint.ads		20250523110204 67e4edfb system.img_int%s
+D s-imguns.ads		20250523110204 c4e23690 system.img_uns%s
+D s-parame.ads		20260202091358 a1aeab5c system.parameters%s
+D s-powflt.ads		20250523110204 a51ab9b8 system.powten_flt%s
+D s-putima.ads		20250523110204 17291fe4 system.put_images%s
+D s-secsta.ads		20250523110204 578279f5 system.secondary_stack%s
+D s-soflin.ads		20250523110204 df77073e system.soft_links%s
+D s-stache.ads		20250523110204 0b81c1fe system.stack_checking%s
+D s-stalib.ads		20250523110204 1c9580f6 system.standard_library%s
+D s-stoele.ads		20250523110204 ccded4e8 system.storage_elements%s
+D s-traent.ads		20250523110204 c81cbf8c system.traceback_entries%s
+D s-unstyp.ads		20250523110204 fa2a7f59 system.unsigned_types%s
+D s-valint.ads		20250523110204 8bab724f system.val_int%s
+D s-valspe.ads		20250523110204 b0fcd073 system.val_spec%s
+D s-valuns.ads		20250523110204 f7ddb71d system.val_uns%s
+D s-valuei.ads		20250523110204 d9377ca5 system.value_i%s
+D s-vaispe.ads		20250523110204 8280550e system.value_i_spec%s
+D s-valueu.ads		20250523110204 a38d32a6 system.value_u%s
+D s-vauspe.ads		20250523110204 89269ba5 system.value_u_spec%s
+D s-vs_int.ads		20250523110204 06b6b724 system.vs_int%s
+D s-vs_uns.ads		20250523110204 e7f47a27 system.vs_uns%s
+D s-wchcon.ads		20250523110204 d9032363 system.wch_con%s
+G a e
+G c Z b b [proj standard 5 11 none]
+X 1 ada.ads
+16K9*Ada 20e8 15|1r6 1r23 32r10
+X 9 a-textio.ads
+58K13*Text_IO 785e16 15|1w10 1r27 32r14
+284U14*New_Line 15|34s7
+515U14*Put 15|32s22
+552V13*Get_Line{string} 15|39s24 40s24
+565U14*Put_Line 15|13s4 44s7 46s7 48s7
+X 11 advcalc.ads
+3K9*Advcalc 77e12 15|3w6
+X 12 interfac.ads
+38K9*Interfaces 233e15 15|2r6
+X 13 i-c.ads
+30K20*C 598e17 15|2w17
+X 15 proj.adb
+5U11*proj 5b11 64l5 64t9
+6i4 A{integer} 39m4 41r9
+6i7 B{integer} 40m4 41r13
+6i10 C{integer} 41m4 43r7 45r10 46r54 48r54
+7i4 D{integer} 50m4 51m4
+8A9 Matrix_Arr(float)<integer><integer> 17r47 18r8 28r21 54r11
+10V10 exarr{integer} 10b10 10>16 15l5 15t10 50s9 51s9
+10i16 Index{integer} 13r49 13r82 14r13
+11a4 E(integer) 13r80 14r11
+17V10 matrix{8A9} 17b10 17>17 17>23 26l5 26t11 54s25
+17i17 Rows{positive} 18r24
+17i23 Cols{positive} 18r35
+18a4 M{8A9} 20r13 21r16 22m10 25r11
+20i8 i{integer} 22r12
+21i11 j{integer} 22r14
+28U11 Print 28b11 28>17 36l5 36t10 62s7
+28a17 M{8A9} 30r13 31r16 32r38
+30i8 R{integer} 32r40
+31i11 C{integer} 32r43
+54a7 E{8A9} 56r7 57r7 58r7 59r7 60r7 61r7 62r13
+
